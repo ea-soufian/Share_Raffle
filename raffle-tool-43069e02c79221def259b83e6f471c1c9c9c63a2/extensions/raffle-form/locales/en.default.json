@@ -1,0 +1,119 @@
+{
+    "customer": {
+        "account": {
+            "title": "My Account",
+            "details": "Account Details",
+            "view_addresses": "View Addresses",
+            "return": "Return to Account Details"
+        },
+        "activate_account": {
+            "title": "Activate Account",
+            "subtext": "Create your password to activate your account.",
+            "password": "Password",
+            "password_confirm": "Confirm Password",
+            "submit": "Activate Account",
+            "cancel": "Decline Invitation"
+        },
+        "addresses": {
+            "title": "Address",
+            "default": "Default",
+            "add_new": "Add a New Address",
+            "edit_address": "Edit address",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "company": "Company",
+            "address1": "Address",
+            "address2": "Apartment, suite, etc.",
+            "city": "City",
+            "country": "Country\/Region",
+            "province": "Province",
+            "zip": "Postal\/Zip Code",
+            "phone": "Phone",
+            "set_default": "Set as default address",
+            "add": "Add Address",
+            "update": "Update Address",
+            "cancel": "Cancel",
+            "edit": "Edit",
+            "delete": "Delete",
+            "delete_confirm": "Are you sure you wish to delete this address?"
+        },
+        "login": {
+            "title": "Login",
+            "email": "Email",
+            "password": "Password",
+            "forgot_password": "Forgot your password?",
+            "sign_in": "Sign In",
+            "guest_title": "Continue as a guest",
+            "guest_continue": "Continue"
+        },
+        "orders": {
+            "title": "Orders",
+            "order_number": "Order",
+            "order_number_link": "Order number {{ number }}",
+            "date": "Date",
+            "payment_status": "Payment Status",
+            "fulfillment_status": "Fulfillment Status",
+            "total": "Total",
+            "none": "You haven't placed any orders yet."
+        },
+        "order": {
+            "title": "Order {{ name }}",
+            "date_html": "Placed on {{ date }}",
+            "cancelled_html": "Order Cancelled on {{ date }}",
+            "cancelled_reason": "Reason: {{ reason }}",
+            "billing_address": "Billing Address",
+            "payment_status": "Payment Status",
+            "shipping_address": "Shipping Address",
+            "fulfillment_status": "Fulfillment Status",
+            "discount": "Discount",
+            "shipping": "Shipping",
+            "tax": "Tax",
+            "product": "Product",
+            "sku": "SKU",
+            "price": "Price",
+            "quantity": "Quantity",
+            "total": "Total",
+            "fulfilled_at_html": "Fulfilled {{ date }}",
+            "subtotal": "Subtotal",
+            "track_shipment": "Track shipment"
+        },
+        "recover_password": {
+            "title": "Reset your password",
+            "email": "Email",
+            "submit": "Submit",
+            "cancel": "Cancel",
+            "subtext": "We will send you an email to reset your password.",
+            "success": "We've sent you an email with a link to update your password."
+        },
+        "reset_password": {
+            "title": "Reset account password",
+            "subtext": "Enter a new password for {{ email }}",
+            "password": "Password",
+            "password_confirm": "Confirm Password",
+            "submit": "Reset Password"
+        },
+        "register": {
+            "title": "Join the community",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email",
+            "password": "Password",
+            "submit": "Create Account",
+            "existing_account": "I have an account"
+        }
+    },
+    "raffle_entries": {
+        "raffle_is_closed": "This raffle is closed",
+        "your_details": "Your details",
+        "provide_your_details": "Provide your details to enter the raffle. We'll select winners randomly and notify you of the draw finishing.",
+        "raffle_closes_on": "This raffle closes on",
+        "subscribe_to_newsletter": "Subscribe to Patta newsletter",
+        "raffle_form_submit_button": "Enter Raffle",
+        "confirmation_heading": "Thank you",
+        "confirmation_thanks_for_details": "Thanks for providing your details to enter the draw to purchase",
+        "confirmation_winner_selection_details": "We'll select winners randomly and notify you after the draw finishes.",
+        "confirmation_change_details": "If you wish to change any details of your form, you may do so by resubmitting the form with the correct details.",
+        "log_in_prompt": "Please log in to submit your raffle entry.",
+        "return_to_login_button": "Return to login"
+    }
+}

@@ -1,0 +1,42 @@
+.legacy-card {
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+  }
+  
+  .custom-card {
+    margin-bottom: 16px;
+  }
+  
+  .custom-card__content {
+    margin-top: 8px;
+  }
+  
+  .custom-card__content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .custom-card__content p {
+    margin: 0;
+  }
+  
+  .raffle-entries-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .raffle-entry {
+    background-color: #f5f7fa;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .raffle-entry p {
+    margin-bottom: 10px;
+  }
+  

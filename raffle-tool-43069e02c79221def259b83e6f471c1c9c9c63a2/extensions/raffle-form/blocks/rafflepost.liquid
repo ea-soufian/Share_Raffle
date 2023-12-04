@@ -1,0 +1,93 @@
+{% liquid
+  assign metafieldsData = article.metafields.raffle
+  assign productJson = metafieldsData.product_json.value.product
+
+  if productJson != blank
+    assign productVariants = productJson.variants
+    assign firstVariant = productVariants | first
+  endif
+
+  assign currentTimestamp = 'now' | date: '%Y-%m-%d %H:%M:%S'
+  assign deadlineTimestamp = metafieldsData.end_timestamp | date: '%Y-%m-%d %H:%M:%S'
+
+  assign currentTimeInUnix = 'now' | date: '%s' | times: 1000
+  assign deadlineInUnix = metafieldsData.end_timestamp | date: '%s' | times: 1000
+
+  if metafieldsData.force_closed == 'true'
+    assign isRaffleClosed = true
+  elsif currentTimeInUnix >= deadlineInUnix
+    assign isRaffleClosed = true
+  else
+    assign isRaffleClosed = false
+  endif
+%}
+
+{% unless isRaffleClosed %}
+  {% assign raffleDeadlineText = 'Raffle closes at ' %}
+  <p id="raffle__open-title" class="raffle__deadline">
+    {{ raffleDeadlineText | append: deadlineTimestamp }}
+  </p>
+{% endunless %}
+
+<p id="raffle__closed-title" class="raffle__deadline{% unless isRaffleClosed %} hidden{% endunless %}">
+  {{ 'raffle_entries.raffle_is_closed' | t }}
+</p>
+
+{% if productJson != blank %}
+  <h2 id="raffle__product_title">{{ productJson.title }}</h2>
+  <h5 id="raffle__price">{{ firstVariant.price | times: 100 | money }}</h5>
+{% endif %}
+
+{% unless isRaffleClosed %}
+  <div
+    id="raffle__countdown-container"
+    class="hidden"
+    data-deadline="{{ deadlineInUnix }}">
+    <h3 class="raffle__countdown-title">Raffle closes in</h3>
+    <h3 class="raffle__countdown-value" id="raffle__countdown-day">00</h3>
+    <h3 class="raffle__countdown-value" id="raffle__countdown-hrs">00</h3>
+    <h3 class="raffle__countdown-value" id="raffle__countdown-min">00</h3>
+    <h3 class="raffle__countdown-value" id="raffle__countdown-sec">00</h3>
+    <span class="raffle__countdown-unit">day</span>
+    <span class="raffle__countdown-unit">hrs</span>
+    <span class="raffle__countdown-unit">min</span>
+    <span class="raffle__countdown-unit">sec</span>
+  </div>
+{% endunless %}
+
+{%
+   render 'raffle-form-test' with
+ article: article,
+ customer: customer,
+ isRaffleClosed: isRaffleClosed,
+ metafieldsData: metafieldsData,
+ deadlineTimestamp: deadlineTimestamp %}
+
+{% unless isRaffleClosed %}
+  {% if customer %}
+
+    {% else %}
+      {% render 'customer-login' %}
+  {% endif %}
+{% endunless %}
+
+{% schema %}
+  {
+    "name": "Raffle Post",
+    "target": "section",
+    "enabled_on": {
+      "templates": ["article"]
+    },
+    "stylesheet": "index.css",
+    "stylesheet": "raffle.css",
+    "javascript": "raffle.js",
+    "settings": [
+      {
+        "label": "Color",
+        "id": "color",
+        "type": "color",
+        "default": "#000000"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,117 @@
+{% assign redirectUrl = article.url | append: '#raffle__form' %}
+
+<div id="raffle__log-in-prompt">
+    {{ 'raffle_entries.log_in_prompt' | t }}
+</div>
+
+{% form 'customer_login', novalidate: 'novalidate' %}
+    <input
+        type="hidden"
+        name="return_to"
+        value="{{ redirectUrl }}">
+
+    {%- if form.errors -%}
+        <div class="form-message form-message--error">
+        <h2
+            class="h3 form-message__title "
+            tabindex="-1"
+            data-form-status>Please adjust the following:</h2>
+        {{ form.errors | default_errors }}
+        </div>
+    {%- endif -%}
+    <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+    <input
+        class="patta-input"
+        type="email"
+        name="customer[email]"
+        id="CustomerEmail"
+        autocomplete="email"
+        autocorrect="off"
+        autocapitalize="off"
+        {%- if form.errors contains 'form' -%}
+        class="input--error"
+        aria-invalid="true"
+        {%- endif -%}>
+
+    {% if form.password_needed %}
+        <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+        <input
+        class="patta-input"
+        type="password"
+        value=""
+        name="customer[password]"
+        id="CustomerPassword"
+        {%- if form.errors contains 'form' -%}
+        class="input--error"
+        aria-invalid="true"
+        {%- endif -%}>
+    {% endif %}
+
+    <div class="text-center">
+        {% if form.password_needed %}
+        <p>
+            <a href="#recover" id="raffle__RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+        </p>
+        {% endif %}
+
+        <button type="submit" class="button__big--black">{{ 'customer.login.sign_in' | t }}</button>
+
+        <p>
+        {{ 'Create account' | customer_register_link }}
+        </p>
+    </div>
+{% endform %}
+
+<div id="raffle__RecoverPasswordForm" class="hide">
+<div class="form-vertical">
+    {% form 'recover_customer_password' %}
+        {% assign redirectPasswordUrl = article.url | append: '#raffle__log-in-prompt' %}
+
+        <input
+            type="hidden"
+            name="return_to"
+            value="{{ redirectPasswordUrl }}">
+        <div class="text-center" {% if form.posted_successfully? %}style="display: none"{% endif %}>
+            <h1 id="RecoverHeading">{{ 'customer.recover_password.title' | t }}</h1>
+        </div>
+
+        {% comment %}
+            Add a hidden span to indicate the form was submitted succesfully.
+        {% endcomment %}
+        {% if form.posted_successfully? %}
+            <span class="hide reset-password-success">
+            {{ 'customer.recover_password.success' | t }}
+            </span>
+
+            <button class="button__big--black HideRecoverPasswordLink">{{ 'raffle_entries.return_to_login_button' | t }}</button>
+        {% endif %}
+
+        <label {% if form.posted_successfully? %}style="display: none"{% endif %} for="RecoverEmail">{{ 'customer.recover_password.email' | t }}</label>
+        <input
+            {% if form.posted_successfully? %}style="display: none"{% endif %}
+            type="email"
+            value=""
+            name="email"
+            id="RecoverEmail"
+            class="input-full{% if form.errors %} input--error{% endif %} patta-input"
+            autocorrect="off"
+            autocapitalize="off"
+            {% if form.errors %}
+            aria-invalid="true"
+            aria-describedby="RecoverEmail-email-error"
+            {%- endif -%}>
+        {%- if form.errors -%}
+            <span id="RecoverEmail-email-error" class="input-error-message">
+                <span class="visually-hidden">Error: <span>{{ form.errors.messages['form'] }}</span> </span>
+            </span>
+        {%- endif -%}
+
+        <div class="text-center" {% if form.posted_successfully? %}style="display: none"{% endif %}>
+            <p>
+                <button type="submit" class="button__big--black">{{ 'customer.recover_password.submit' | t }}</button>
+            </p>
+            <a href="#LoginHeading" class="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</a>
+        </div>
+    {% endform %}
+</div>
+

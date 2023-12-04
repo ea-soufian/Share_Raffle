@@ -1,0 +1,109 @@
+
+
+
+
+{% liquid
+  assign metafieldsData = article.metafields.raffle
+  assign productJson = metafieldsData.product_json.value.product
+
+  assign deadlineTimestamp = metafieldsData.end_timestamp | date: '%Y-%m-%d %H:%M:%S'
+
+  assign terms = 'I hereby clarify that I have filled out this form as Patta stated. I also hereby state that I have only signed up once for the ' | append: productJson.title | append: ' raffle at Patta and that my registration can be seen as invalid if I did sign up for multiple shoes.'
+%}
+
+<aside style="background-color: pink;">
+  <p style="background-color: red;">
+    force_closed: {{ metafieldsData.force_closed }}
+  </p>
+  <p style="background-color: green;">
+    isRaffleClosed: {{ isRaffleClosed }}
+  </p>
+  <p style="background-color: aqua;">end_timestamp:{{ metafieldsData.end_timestamp | metafield_tag }}</p>
+
+</aside>
+
+<form class="raffle-form" id="raffle-form">
+  <label>article id</label>
+  <input id="raffle-id" value="{{ article.id }}">
+
+  <label>customer id</label>
+  <input id="customer-id" value="{{ customer.id }}">
+
+  <label>product id</label>
+  <input id="product-id" value="{{ productJson.id }}">
+
+  <label>product title</label>
+  <input id="product-title" value="{{ productJson.title }}">
+
+  <label for="firstName">First Name:</label>
+  <input
+    type="text"
+    name="firstName"
+    value="Leandr"
+    required>
+
+  <label for="lastName">Last Name:</label>
+  <input
+    type="text"
+    name="lastName"
+    value="Johnson"
+    required>
+
+  <label for="streetAddress">Street Address:</label>
+  <input
+    type="text"
+    name="streetAddress"
+    value="Wierdenseweg"
+    required>
+
+  <label for="zipCode">Zip Code:</label>
+  <input
+    type="text"
+    name="zipCode"
+    value="7171kb"
+    required>
+
+  <label for="city">City:</label>
+  <input
+    type="text"
+    name="city"
+    value="Amsterdam"
+    required>
+
+  <label for="country">Country:</label>
+  <input
+    type="text"
+    name="country"
+    value="The Netherlands"
+    required>
+
+  <label for="birthday">Birthday:</label>
+  <input
+    type="date"
+    name="birthday"
+    value="1992-02-19"
+    required>
+
+  <button type="submit" id="submitButton">Enter Raffle</button>
+</form>
+
+<div id="raffle__confirmation-message-container" class="hidden">
+  <h3>Thank you</h3>
+  <p>
+    Thanks you for providing your details to enter the draw to purchase
+    {{ productJson.title }}. We'll select winners randomly and notify you after
+    the draw finishes.
+    <strong>This raffle closes on {{ deadlineTimestamp }}.</strong>
+  </p>
+</div>
+
+<div id="raffle__update-message-container" class="hidden">
+  <h3>Thank you</h3>
+  <p>
+    Thanks you for updating your details to enter the draw to purchase
+    {{ productJson.title }}. We'll select winners randomly and notify you after
+    the draw finishes.
+    <strong>This raffle closes on {{ deadlineTimestamp }}.</strong>
+  </p>
+</div>
+

@@ -1,0 +1,105 @@
+{% liquid
+  assign metafieldsData = article.metafields.raffle
+  assign productJson = metafieldsData.product_json.value.product
+
+  assign productVariants = productJson.variants
+  assign firstVariant = productVariants | first
+  assign firstSizeOption = firstVariant.option1 | split: ',' | first
+  assign sizeTypeCheck = firstSizeOption | slice: 0, 2
+
+  if sizeTypeCheck == "US" or sizeTypeCheck == "us" or product.type == "Footwear"
+    assign useFootwearSizing = true
+  else
+    assign useFootwearSizing = false
+  endif
+
+  assign usWomenCheck = firstSizeOption | slice: 0, 3
+  if usWomenCheck == "USW" or usWomenCheck == "usw"
+    assign useWomenSizing = true
+  else
+    assign useWomenSizing = false
+  endif
+
+  assign nikeChildSizingCheck = firstSizeOption | slice: -1, 1
+  if nikeChildSizingCheck == "C" and product.type == "Footwear"
+    assign useNikeChildSizing = true
+  else
+    assign useNikeChildSizing = false
+  endif
+%}
+
+
+<h1>{{ productJson.title }}</h1>
+
+<h3>Size</h4>
+{% if useFootwearSizing %}
+  <div id="raffle__size-switches">
+    <input
+      type="radio"
+      id="size-switch--us"
+      name="size-switch"
+      value="us">
+    <label class="c-button" for="size-switch--us">
+      {% if useWomenSizing %}USW{% else %}US{% endif %}
+    </label>
+    <input
+    type="radio"
+      id="size-switch--eu"
+      name="size-switch"
+      value="eu"
+      checked>
+    {%- comment -%}If theme.custom.js fails, EU size is default{%- endcomment -%}
+    <label class="c-button" for="size-switch--eu">EU</label>
+    <input
+      type="radio"
+      id="size-switch--uk"
+      name="size-switch"
+      value="uk">
+    <label class="c-button" for="size-switch--uk">UK</label>
+  </div>
+{% endif %}
+
+<div id="raffle__size-selector-container">
+  {% for option in productJson.options %}
+    {% assign option_name_downcased = option.name | downcase %}
+    {% if option_name_downcased == "size" or option_name_downcased == "grootte" or option_name_downcased == 'apparel sizes' %}
+      {% for value in option.values %}
+        {% assign variantIndex = forloop.index | minus: 1 %}
+        {% assign variantSku = productJson.variants[variantIndex].sku %}
+        {% assign variantID = productJson.variants[variantIndex].id %}
+        {%- comment -%}splitting up variant size value (e.g. us4.0,eu36.5,uk4.0) into separate variables {%- endcomment -%}
+        {% assign allSizes = value | split: "," %}
+        {% assign usSizeLength = allSizes[0] | size %}
+        {% if useWomenSizing %}
+          {% assign usSize = allSizes[0] | slice: 3, usSizeLength %}
+        {% elsif useNikeChildSizing %}
+          {% assign usSize = allSizes[0] %}
+        {% else %}
+          {% assign usSize = allSizes[0] | slice: 2, usSizeLength %}
+        {% endif %}
+        {% assign euSizeLength = allSizes[1] | size %}
+        {% assign euSize = allSizes[1] | slice: 2, euSizeLength %}
+        {% assign ukSizeLength = allSizes[2] | size %}
+        {% assign ukSize = allSizes[2] | slice: 2, ukSizeLength %}
+        <input
+          id="{{ value | escape }}"
+          type="radio"
+          name="size"
+          value="{{ value | escape }}"
+          data-sku="{{ variantSku }}"
+          data-variant-id="{{ variantID }}" />
+        <label
+          for="{{ value | escape }}"
+          {% if useFootwearSizing %}data-us-size="{{ usSize }}"data-eu-size="{{ euSize }}"data-uk-size="{{ ukSize }}"{% endif %}
+          class="c-button single-option_label">
+          {% if useFootwearSizing %}
+            {{ euSize }}
+            {%- comment -%}If JS Fails to load, use EU size as default{%- endcomment -%}
+          {% else %}
+            {{ value | escape }}
+          {% endif %}
+        </label>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+</div>

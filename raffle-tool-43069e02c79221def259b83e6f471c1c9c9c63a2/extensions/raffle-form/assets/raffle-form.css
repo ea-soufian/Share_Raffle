@@ -1,0 +1,79 @@
+/* Apply some basic styling to the form */
+.raffle-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Style the labels */
+  .raffle-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  /* Style the inputs */
+  .raffle-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  /* Style the submit button */
+  .raffle-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Style the confirmation message container */
+  #raffle__confirmation-message-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  #raffle__confirmation-message-container h3 {
+    margin-top: 0;
+  }
+  
+  #raffle__confirmation-message-container p strong {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Add some additional styles to the form container */
+  aside {
+    background-color: pink;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  aside p {
+    margin: 5px 0;
+    padding: 5px;
+  }
+  
+  /* Style the force_closed and isRaffleClosed paragraphs */
+  aside p:nth-child(1) {
+    background-color: red;
+  }
+  
+  aside p:nth-child(2) {
+    background-color: green;
+  }
+  
+  /* Style the end_timestamp paragraph */
+  aside p:nth-child(3) {
+    background-color: aqua;
+  }
+  

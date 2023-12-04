@@ -1,0 +1,168 @@
+{% liquid
+  assign metafieldsData = article.metafields.raffle
+  assign productJson = metafieldsData.product_json.value.product
+
+  assign deadlineTimestamp = metafieldsData.end_timestamp | date: '%Y-%m-%d %H:%M:%S'
+
+  assign terms = 'I hereby clarify that I have filled out this form as Patta stated. I also hereby state that I have only signed up once for the ' | append: productJson.title | append: ' raffle at Patta and that my registration can be seen as invalid if I did sign up for multiple shoes.'
+%}
+
+<p id="raffle__text-below-image" class="c-intro">
+  {{ metafieldsData.text_below }}
+</p>
+<form id="raffle__form">
+  <input
+    id="brand"
+    type="hidden"
+    value="{{ productJson.vendor }}"
+  >
+  <input
+    id="product-price"
+    type="hidden"
+    value="{{ productJson.variants[0].price }}"
+  >
+  <input
+    id="product-title"
+    type="hidden"
+    value="{{ productJson.title }}"
+  >
+  <input
+    id="product_handle"
+    type="hidden"
+    value="{{ productJson.handle }}"
+  >
+  <input
+    id="article-id"
+    type="hidden"
+    value="{{ article.id }}"
+  >
+  <input
+    id="customer-id"
+    type="hidden"
+    value="{{ customer.id }}"
+  >
+  <input
+    id="product-id"
+    type="hidden"
+    value="{{ productJson.id }}"
+  >
+  <h4>{{ 'raffle_entries.your_details' | t }}</h4>
+  <p>
+    {{ 'raffle_entries.provide_your_details' | t }}
+    <strong>
+      {{- 'raffle_entries.raffle_closes_on' | t }}
+      {{ deadlineTimestamp }}.</strong
+    >
+  </p>
+  <input
+    type="email"
+    class="raffle__required-input"
+    id="email"
+    name="email"
+    placeholder="E-mail Address"
+    autocomplete="email"
+    required
+  >
+  <div class="raffle__fields-container">
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="first_name"
+      name="first_name"
+      placeholder="First Name"
+      autocomplete="given-name"
+      required
+    >
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="last_name"
+      name="last_name"
+      placeholder="Last Name"
+      autocomplete="family-name"
+      required
+    >
+  </div>
+  <div class="raffle__fields-container">
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="street_address"
+      name="street_address"
+      placeholder="Street Address"
+      autocomplete="street-address"
+      required
+    >
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="zip_code"
+      name="zip_code"
+      placeholder="Zip Code"
+      autocomplete="postal-code"
+      required
+    >
+  </div>
+  <div class="raffle__fields-container">
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="city"
+      name="city"
+      placeholder="City"
+      autocomplete="address-level2"
+      required
+    >
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="country"
+      name="country"
+      placeholder="Country"
+      required
+    >
+  </div>
+  <div class="raffle__fields-container" id="raffle__bday-ig-container">
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="bday"
+      name="birthday"
+      required
+      pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+      placeholder="Date of birth (DD/MM/YYYY)"
+      autocomplete="bday"
+      required
+    >
+    <input
+      type="text"
+      class="raffle__required-input"
+      id="instagram"
+      name="instagram"
+      placeholder="Instagram Handle"
+      required
+    >
+  </div>
+
+  <input
+    type="checkbox"
+    class="raffle__required-input"
+    id="conditions"
+    required
+  >
+  <label for="conditions" class="raffle__checkbox-label">
+    <span>{{ terms }}</span>
+  </label>
+
+  <button id="raffle__form-submit">Enter Raffle</button>
+</form>
+
+<div id="raffle__confirmation-message-container" class="hide">
+  <h3>Thank you</h3>
+  <p>
+    Thanks for providing your details to enter the draw to purchase
+    {{ productJson.title }}. We'll select winners randomly and notify you after
+    the draw finishes.
+    <strong>This raffle closes on {{ deadlineTimestamp }}.</strong>
+  </p>
+</div>

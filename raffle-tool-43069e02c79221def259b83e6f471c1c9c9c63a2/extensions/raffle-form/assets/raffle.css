@@ -1,0 +1,129 @@
+/* Apply some basic styling to the form */
+.raffle-form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Style the labels */
+  .raffle-form label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  /* Style the inputs */
+  .raffle-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style the submit button */
+  .raffle-form button[type="submit"] {
+    grid-column: span 2;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Style the confirmation message container */
+  #raffle__confirmation-message-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  #raffle__confirmation-message-container h3 {
+    margin-top: 0;
+  }
+  
+  #raffle__confirmation-message-container p strong {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Add some additional styles to the form container */
+  aside {
+    background-color: pink;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  aside p {
+    margin: 5px 0;
+    padding: 5px;
+  }
+  
+  /* Style the force_closed and isRaffleClosed paragraphs */
+  aside p:nth-child(1) {
+    background-color: red;
+  }
+  
+  aside p:nth-child(2) {
+    background-color: green;
+  }
+  
+  /* Style the end_timestamp paragraph */
+  aside p:nth-child(3) {
+    background-color: aqua;
+  }
+  
+  /* Countdown styles */
+  .hidden {
+    display: none;
+  }
+  
+  #raffle__countdown-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 40px);
+    margin: 0 auto;
+    margin-top: 45px;
+    max-width: 400px;
+  }
+  
+  .raffle__countdown-value,
+  .raffle__countdown-unit {
+    text-align: center;
+  }
+  
+  .raffle__countdown-title,
+  .raffle__countdown-value  {
+    font-size: xx-large;
+    font-weight: bold;
+  }
+  
+  .raffle__countdown-value {
+    position: relative;
+    padding: 5px 0 0 0;
+    margin: 0 auto;
+  }
+  
+  .raffle__countdown-value::after {
+    content: ":";
+    position: absolute;
+    right: -10px;
+  }
+  
+  #raffle__countdown-sec::after {
+    content: "";
+  }
+  
+  .raffle__countdown-title {
+    grid-area: 1 / 1 / 2 / 5;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    align-items: flex-end;
+    font-size: 20px;
+  }
+  

@@ -1,0 +1,704 @@
+#shopify-section-article-raffle-template {
+  margin-top: -54px; /* Offset main-content padding-top due to lack of mega menu */
+  padding-bottom: 96px; /* Add extra whitespace at the bottom */
+}
+@media only screen and (min-width: 1024px) {
+  #shopify-section-article-raffle-template {
+    margin-top: -21px; /* Offset main-content padding-top due to lack of mega menu */
+  }
+}
+
+#shopify-section-article-raffle-template > h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 800;
+  font-size: 40px;
+  margin: 0 32px;
+  line-height: 40px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #shopify-section-article-raffle-template > h1 {
+    font-size: 80px;
+    margin: 0 240px;
+    line-height: 73px;
+  }
+}
+
+/* iPad Pro 12.9" Portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  #shopify-section-article-raffle-template > h1 {
+    margin: 0 120px;
+  }
+}
+
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #shopify-section-article-raffle-template > h1 {
+    margin: 0 120px;
+  }
+}
+
+.raffle__deadline {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 32px;
+  margin-top: 11px;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .raffle__deadline {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+}
+
+#raffle__closed-title {
+  display: none;
+}
+
+#raffle__closed-title.active {
+  display: block;
+  color: #e70000;
+}
+
+#raffle__price {
+  text-align: center;
+  font-weight: 700;
+  margin: 0 32px;
+  font-size: 24px;
+  margin-top: 19px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__price {
+    font-size: 40px;
+    margin-top: 26px;
+  }
+}
+
+.raffle__featured-image > .image-lazy {
+  margin-top: 30px;
+  height: 382px;
+}
+
+.raffle__featured-image > .image-lazy > img {
+  height: 100%;
+  object-fit: contain;
+}
+
+@media only screen and (min-width: 1024px) {
+  .raffle__featured-image > .image-lazy {
+    margin-top: 54px;
+    height: 810px;
+  }
+}
+
+#raffle__countdown-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 40px);
+  margin: 38px 48px 0 48px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__countdown-container {
+    grid-template-rows: repeat(3, 64px);
+    width: 492px;
+    margin: 0 auto;
+    margin-top: 85px;
+  }
+}
+
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #raffle__countdown-container {
+    width: 600px;
+  }
+}
+
+.raffle__countdown-title {
+  grid-area: 1 / 1 / 2 / 5;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  align-items: flex-end;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .raffle__countdown-title {
+    padding-bottom: 7px;
+    font-size: 24px;
+  }
+}
+
+.raffle__countdown-value {
+  position: relative;
+  font-size: 40px;
+  font-weight: 800;
+  padding: 5px 0 0 0;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  .raffle__countdown-value {
+    font-size: 80px;
+    padding: 0;
+  }
+}
+
+.raffle__countdown-value::after {
+  content: ":";
+  position: absolute;
+  top: 22px;
+  font-size: 23px;
+  right: -17px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .raffle__countdown-value::after {
+    font-size: 41px;
+    right: -27px;
+  }
+}
+
+#raffle__countdown-sec::after {
+  content: "";
+}
+
+.raffle__countdown-unit {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 auto;
+  padding: 15px 0 0 0;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .raffle__countdown-unit {
+    padding: 30px 0 0 0;
+    font-size: 24px;
+  }
+}
+
+#raffle__closed-description {
+  display: none;
+  white-space: pre-line;
+  margin: 46px 32px 32px 32px;
+  line-height: 32px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__closed-description {
+    margin: 104px 295px;
+    line-height: 40px;
+  }
+}
+
+/* iPad Pro 12.9" Portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  #raffle__closed-description {
+    margin: 104px 120px;
+  }
+}
+
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #raffle__closed-description {
+    margin: 104px 120px;
+  }
+}
+
+#raffle__closed-description.active {
+  display: block;
+}
+
+#raffle__text-above-image {
+  white-space: pre-line;
+  margin: 46px 32px 32px 32px;
+  line-height: 32px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__text-above-image {
+    margin: 104px 295px;
+    line-height: 40px;
+  }
+}
+
+/* iPad Pro 12.9" Portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  #raffle__text-above-image {
+    margin: 104px 120px;
+  }
+}
+
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #raffle__text-above-image {
+    margin: 104px 120px;
+  }
+}
+
+#raffle__text-below-image {
+  white-space: pre-line;
+  margin: 46px 32px 0 32px;
+  line-height: 32px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__text-below-image {
+    margin: 101px 295px 0 295px;
+    line-height: 40px;
+  }
+}
+
+/* iPad Pro 12.9" Portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  #raffle__text-below-image {
+    margin: 101px 120px 0 120px;
+  }
+}
+
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #raffle__text-below-image {
+    margin: 101px 120px 0 120px;
+  }
+}
+
+#raffle__form {
+  margin: 78px 30px 0 30px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form {
+    margin: 103px 295px 0 295px;
+  }
+}
+
+/* iPad Pro 12.9" Portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  #raffle__form {
+    margin: 103px 120px 0 120px;
+  }
+}
+
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #raffle__form {
+    margin: 103px 120px 0 120px;
+  }
+}
+
+#raffle__form > .raffle__fields-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#raffle__form > #raffle__bday-ig-container {
+  display: block;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form > #raffle__bday-ig-container {
+    display: flex;
+  }
+}
+
+#raffle__form > .raffle__fields-container > input {
+  width: 48%;
+}
+
+#raffle__form > .raffle__fields-container > #bday {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form > .raffle__fields-container > #bday {
+    width: 48%;
+  }
+}
+
+#raffle__form > .raffle__fields-container > #instagram {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form > .raffle__fields-container > #instagram {
+    width: 48%;
+  }
+}
+
+#raffle__form > .raffle__fields-container > #street_address {
+  width: 68%;
+}
+
+#raffle__form > .raffle__fields-container > #zip_code {
+  width: 28%;
+}
+#raffle__form > .raffle__fields-container > #locations {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: black;
+  text-align: left;
+  padding: 16px 32px 16px 0;
+  width: 100%;
+  margin: 16px 0;
+  font-size: 16px;
+}
+@media only screen and (min-width: 1024px) {
+  #raffle__form > .raffle__fields-container > #locations {
+    padding: 20px 40px 20px 0;
+  }
+}
+#raffle__form > .raffle__fields-container > #locations:focus {
+  border-bottom: 1px solid black;
+}
+
+#raffle__form > .raffle__fields-container > #locations.blurred:invalid {
+  color: #e70000;
+  border-color: #e70000;
+}
+
+#raffle__form > h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form > h4 {
+    margin-bottom: 21px;
+  }
+}
+
+#raffle__form > p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form > p {
+    font-size: 24px;
+    line-height: 40px;
+    margin-bottom: 22px;
+  }
+}
+
+#raffle__form input {
+  outline: none;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  color: #000;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 16px 0;
+  margin: 16px 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form input {
+    padding: 20px 0;
+    margin: 20px 0;
+  }
+}
+
+#raffle__form input.blurred:invalid {
+  border-color: #e70000;
+}
+
+#raffle__form input.blurred:invalid::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #e70000;
+  opacity: 1; /* Firefox */
+}
+
+#raffle__form input.blurred:invalid:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #e70000;
+}
+
+#raffle__form input.blurred:invalid::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #e70000;
+}
+
+#raffle__form > h3 {
+  margin: 40px 0 17px 0;
+  font-size: 24px;
+  padding: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form > h3 {
+    margin: 38px 0 40px 0;
+  }
+}
+
+#raffle__size-switches {
+  display: flex;
+}
+
+#raffle__size-switches > input {
+  display: none;
+}
+
+#raffle__size-switches > label {
+  padding: 8px 45px 8px 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__size-switches > label {
+    padding: 8px 65px 8px 0;
+  }
+}
+
+#raffle__size-switches > label:focus {
+  outline: none !important;
+}
+
+#raffle__size-switches > input:checked + label {
+  color: black;
+}
+
+#raffle__form > #raffle__size-selector-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+  margin: 18px 1px 0 1px;
+}
+
+#raffle__size-selector-container > input {
+  display: none;
+}
+
+#raffle__size-selector-container > label {
+  box-shadow: rgb(204, 204, 204) 0px 0px 0px 1px;
+  height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__size-selector-container > label {
+    height: 73px;
+  }
+}
+
+#raffle__size-selector-container > label.sold-out {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+#raffle__size-selector-container > label:hover {
+  border: 2px solid black;
+}
+
+#raffle__size-selector-container > input:checked + label {
+  background: black;
+  color: white;
+}
+
+#raffle__form #checkbox_newsletter,
+#raffle__form #conditions,
+#raffle__form #conditions-region {
+  display: none;
+}
+
+#raffle__form .raffle__checkbox-label {
+  position: relative;
+  display: block;
+  color: #000;
+  letter-spacing: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 50px;
+  margin-bottom: 22px;
+}
+
+#raffle__form input.blurred:invalid + .raffle__checkbox-label {
+  color: #e70000;
+}
+
+.raffle__checkbox-label:first-of-type {
+  margin-bottom: 0;
+}
+
+.raffle__checkbox-label:first-of-type {
+  margin-top: 33px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .raffle__checkbox-label:first-of-type {
+    margin-top: 62px;
+  }
+}
+
+.raffle__checkbox-label::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000;
+}
+
+#raffle__form input.blurred:invalid + .raffle__checkbox-label::before {
+  border-color: #e70000;
+}
+
+#raffle__form #checkbox_newsletter:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+}
+
+#raffle__form #conditions:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+}
+
+#raffle__form #conditions-region:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+}
+
+#raffle__form-submit {
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 0;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  height: 64px;
+  margin-top: 32px;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__form-submit {
+    margin-top: 59px;
+  }
+}
+
+#raffle__form-submit.enabled {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+#raffle__confirmation-message-container {
+  margin: 83px 32px 0 32px;
+}
+
+#raffle__confirmation-message-container.hide {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__confirmation-message-container {
+    margin: 103px 295px 0 295px;
+  }
+}
+
+#raffle__confirmation-message-container > h3 {
+  font-size: 24px;
+  padding-bottom: 0;
+  margin-bottom: 16px;
+  line-height: 24px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__confirmation-message-container > h3 {
+    margin-bottom: 24px;
+  }
+}
+
+#raffle__confirmation-message-container > p {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #raffle__confirmation-message-container > p {
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
+
+#raffle__log-in-prompt {
+  font-size: 24px;
+  margin: 120px 32px 40px 32px;
+  text-align: center;
+}
+
+#shopify-section-article-raffle-template #customer_login {
+  margin: 0 32px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #shopify-section-article-raffle-template #customer_login {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+#shopify-section-article-raffle-template #customer_login p {
+  margin: 20px 0;
+}
+
+#shopify-section-article-raffle-template #customer_login .button__big--black {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+#shopify-section-article-raffle-template #raffle__RecoverPasswordForm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+#shopify-section-article-raffle-template #raffle__RecoverPasswordForm form {
+  margin: 80px 32px 32px;
+}
+
+#shopify-section-article-raffle-template
+  #raffle__RecoverPasswordForm
+  #RecoverHeading {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+#shopify-section-article-raffle-template .reset-password-success {
+  font-size: 24px;
+}
